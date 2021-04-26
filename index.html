@@ -1,12 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <a href=""></a>
-</body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="bmi-Sec">
+      <h1 class="bmi-header">Instert your info to calculate your BMI</h1>
+      <form action="submit">
+        <div class="fi">
+          <label for="name">Name</label>
+          <input id="name" type="text" />
+        </div>
+        <div class="fi">
+          <label for="age">Age</label>
+          <input id="age" type="number" min="18" placeholder="18 and over" />
+        </div>
+        <div class="fi">
+          <label for="height">Height (CM)</label>
+          <input id="height" type="number" placeholder="only numbers" />
+        </div>
+        <div class="fi">
+          <label for="weight">Weight(KG)</label>
+          <input id="weight" type="number" placeholder="only numbers" />
+        </div>
+
+        <div class="fi">
+          <label for="excersize">Excersize</label>
+          <select name="excersize" id="excersize" required>
+            <option disabled selected value>Select gender</option>
+            <option value="yes">yes</option>
+            <option value="no">no</option>
+          </select>
+        </div>
+        <div class="fi">
+          <label for="gender">Gender</label>
+          <select name="gender" id="gender" required>
+            <option disabled selected value>Select gender</option>
+            <option value="male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+        <div class="calBtn"><button id="calculate">Calculate</button></div>
+      </form>
+      <div class="result"></div>
+    </section>
+    <section class="history-sec">
+      <h1 class="history-header">History</h1>
+    </section>
+    <script src="app.js"></script>
+  </body>
 </html>
