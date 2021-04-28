@@ -120,7 +120,6 @@ const addInfo = (e) => {
     // reset input fields
     document.forms[0].reset();
 
-
     // print calculated into to Page
     function calculated(infoList) {
       return `
@@ -152,13 +151,32 @@ const addInfo = (e) => {
     }
     const result = document.querySelector(".result");
     result.innerHTML = calculated(infoList);
-    // save to local storage
-    const saveBtn=document.getElementById('savebtn');
-    saveBtn.addEventListener('click',(e)=>{
-        e.preventDefault();
-        localStorage.setItem("infoLists", JSON.stringify(infoList));
-    })
 
+    // save to local storage
+    infoLists.push(infoList);
+    localStorage.setItem("infoLists", JSON.stringify(infoLists));
+
+    const saveBtn = document.getElementById("savebtn");
+    if (saveBtn !== null) {
+      saveBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const historyArray = JSON.parse(localStorage.getItem("infoLists"));
+        console.log('array of items',historyArray);
+ 
+        historyArray.map((listItem) => {
+          console.log('list item =',listItem);
+          const li=document.querySelector(".history-ul").innerHTML = saveList(listItem);
+               
+              function saveList(listItem) {
+                return `
+                <li class='list'>
+                Name: ${listItem.name}, Age: ${listItem.age}, BMI: ${listItem.BMI}, Ideal Weight: ${listItem.idealWeightKg}
+              </li>`;
+              }
+              return li
+        });
+      });
+    }
   }
 };
 
